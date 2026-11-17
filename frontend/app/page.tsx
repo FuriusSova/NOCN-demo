@@ -1,6 +1,7 @@
 "use client";
 
-import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import type { SubmitEvent } from "react";
 
 type TimelineEvent = {
   stage: string;
@@ -123,7 +124,7 @@ export default function Home() {
     textareaRef.current?.focus();
   }
 
-  async function submitMessage(event: FormEvent<HTMLFormElement>) {
+  async function submitMessage(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     const trimmed = messageText.trim();
     const characterCount = Array.from(trimmed).length;
